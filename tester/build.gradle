@@ -2,18 +2,16 @@ apply plugin: 'java-library'
 dependencies {
     api 'junit:junit:4.12'
     api 'commons-io:commons-io:2.6'
-    api 'com.google.truth:truth:0.42'
+    api 'com.google.truth:truth:1.0'
     api 'com.google.code.gson:gson:2.8.5'
-    api 'org.mockito:mockito-core:2.23.4'
+    api 'org.mockito:mockito-core:2.28.2'
     api 'pl.pragmatists:JUnitParams:1.1.1'
-    api 'com.squareup.okhttp3:mockwebserver:3.12.1'
-    api "org.assertj:assertj-core:3.11.1"
-    api "org.robolectric:robolectric:3.8"
-    api "com.squareup.okhttp3:mockwebserver:3.12.1"
-    api "com.google.firebase:firebase-admin:6.4.0"
-    api "com.google.guava:guava:27.0.1-jre"
+    api 'com.squareup.okhttp3:mockwebserver:3.14.2'
+    api 'org.assertj:assertj-core:3.11.1'
+    api 'com.google.firebase:firebase-admin:6.10.0'
+    api 'com.google.guava:guava:28.1-jre'
 
 }
 
-sourceCompatibility = "8"
-targetCompatibility = "8"
+sourceCompatibility = '8'
+targetCompatibility = '8'
