@@ -1,14 +1,12 @@
 apply plugin: 'java-library'
 dependencies {
-    api 'junit:junit:4.12'
-    api 'commons-io:commons-io:2.6'
-    api 'com.google.truth:truth:1.0'
-    api 'com.google.code.gson:gson:2.8.5'
-    api 'org.mockito:mockito-core:2.28.2'
-    api 'pl.pragmatists:JUnitParams:1.1.1'
-    api 'com.squareup.okhttp3:mockwebserver:3.14.6'
-    api 'org.assertj:assertj-core:3.14.0'
-    api 'com.google.guava:guava:28.2-jre'
+    implementation 'commons-io:commons-io:2.6'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'commons-io:commons-io:2.6'
+    testImplementation 'com.google.truth:truth:1.0.1'
+    testImplementation 'com.google.code.gson:gson:2.8.5'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
 
 }
 
