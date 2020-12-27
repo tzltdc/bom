@@ -1,12 +1,45 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    repositories {
-        jcenter()
-    }
+  repositories {
+    jcenter()
+  }
+}
+
+plugins {
+  id "com.github.sherter.google-java-format" version "0.8"
 }
 
 allprojects {
-    repositories {
-        jcenter()
-    }
+  repositories {
+    jcenter()
+  }
+}
+
+subprojects { project ->
+  project.tasks.withType(JavaCompile) {
+    dependsOn(installGitHooks)
+  }
+
+  repositories {
+    jcenter()
+    google()
+  }
+
+}
+
+googleJavaFormat {
+  toolVersion = "1.7"
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+//  Google Java Format pre-commit hook installation
+////////////////////////////////////////////////////////////////////////
+
+
+tasks.register('installGitHooks', Copy) {
+  from(file('config/hooks/pre-commit-stub')) {
+    rename 'pre-commit-stub', 'pre-commit'
+  }
+  into file('.git/hooks')
+  fileMode 0777
 }
