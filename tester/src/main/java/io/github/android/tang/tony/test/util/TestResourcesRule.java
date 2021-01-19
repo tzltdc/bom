@@ -20,6 +20,6 @@ public class TestResourcesRule extends ExternalResource {
   }
 
   public InputStream inputStream() {
-    return getClass().getResourceAsStream(resourceFilePath);
+    return TestUtil.inputStream(resourceFilePath, this);
   }
 }

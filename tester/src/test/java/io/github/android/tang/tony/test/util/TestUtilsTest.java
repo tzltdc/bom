@@ -1,8 +1,12 @@
 package io.github.android.tang.tony.test.util;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import com.google.common.reflect.TypeToken;
-import com.google.common.truth.Truth;
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,8 +22,25 @@ public class TestUtilsTest {
 
     String json = resource.content();
     Type type = new TypeToken<Map<String, Integer>>() {}.getType();
-    Map<String, Integer> t = new Gson().fromJson(json, type);
-    Truth.assertThat(t).isEqualTo(expected());
+    Map<String, Integer> actual = new Gson().fromJson(json, type);
+    assertThat(actual).isEqualTo(expected());
+  }
+
+  @Test
+  public void inputStream() {
+
+    InputStream inputStream = resource.inputStream();
+    assertThat(inputStream).isNotNull();
+  }
+
+  @Test
+  public void couldParseTheInputStreamToMap() {
+    Type type = new TypeToken<Map<String, Integer>>() {}.getType();
+
+    InputStream inputStream = resource.inputStream();
+    JsonReader jsonReader = new JsonReader(new InputStreamReader(inputStream));
+    Map<String, Integer> actual = new Gson().fromJson(jsonReader, type);
+    assertThat(actual).isEqualTo(expected());
   }
 
   private Object expected() {

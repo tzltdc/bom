@@ -1,7 +1,10 @@
 package io.github.android.tang.tony.test.util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import org.apache.commons.io.FileUtils;
 
@@ -23,6 +26,14 @@ public class TestUtil {
     try {
       return FileUtils.readFileToString(file(filePath, obj), encoding);
     } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public static InputStream inputStream(String fileName, Object obj) {
+    try {
+      return new FileInputStream(file(fileName, obj));
+    } catch (FileNotFoundException e) {
       throw new RuntimeException(e);
     }
   }
