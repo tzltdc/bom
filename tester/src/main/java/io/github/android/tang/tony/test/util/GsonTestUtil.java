@@ -11,7 +11,7 @@ public class GsonTestUtil {
     return gson().fromJson(content, tClass);
   }
 
-  private static Gson gson() {
+  public static Gson gson() {
     return new GsonBuilder().registerTypeAdapterFactory(GenerateTypeAdapter.FACTORY).create();
   }
 }
