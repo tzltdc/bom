@@ -1,3 +1,2 @@
-include ':androidx'
 include ':common'
 include ':network'
