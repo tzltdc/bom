@@ -1,0 +1,15 @@
+apply plugin: 'java-library'
+dependencies {
+
+  api "com.squareup.okhttp3:okhttp:${okhttp}"
+  api "com.squareup.retrofit2:retrofit:${retrofit}"
+  api "com.squareup.retrofit2:converter-gson:${retrofit}"
+  api "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
+  api project(":common")
+
+  testImplementation 'junit:junit:4.13.2'
+
+}
+
+sourceCompatibility = '8'
+targetCompatibility = '8'
